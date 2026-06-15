@@ -1,0 +1,512 @@
+/* Modern Premium SaaS Navbar */
+:root {
+  --navbar-height: 80px;
+  --navbar-height-scrolled: 68px;
+  --primary: #ffffff;
+  --accent: #ff4ecd;
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.6);
+  --white: #ffffff;
+  --border-color: rgba(255, 255, 255, 0.1);
+}
+
+.navbar {
+  position: fixed;
+  top: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 1300px;
+  background: rgba(11, 11, 15, 0.6);
+  backdrop-filter: blur(25px) saturate(180%);
+  -webkit-backdrop-filter: blur(25px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 100px;
+  z-index: 1000;
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  height: var(--navbar-height);
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
+.navbar.scrolled {
+  top: 16px;
+  width: 94%;
+  height: var(--navbar-height-scrolled);
+  background: rgba(11, 11, 15, 0.95);
+  border-color: rgba(255, 78, 205, 0.2);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+}
+
+.navbar-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 32px;
+}
+
+.navbar-brand {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: #ffffff;
+  text-decoration: none;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.navbar-brand::before {
+  content: '';
+  width: 12px;
+  height: 12px;
+  background: var(--accent);
+  border-radius: 3px;
+  transform: rotate(45deg);
+  box-shadow: 0 0 15px rgba(255, 78, 205, 0.4);
+}
+
+.navbar-links {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.navbar-link {
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.85rem;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 12px 24px;
+  border-radius: 100px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  position: relative;
+}
+
+.navbar-link:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.navbar-link.active {
+  color: #ffffff;
+  background: rgba(255, 78, 205, 0.2);
+  border: 1px solid rgba(255, 78, 205, 0.3);
+}
+
+.navbar-link.logout-btn {
+  background: var(--accent) !important;
+  color: #fff !important;
+  padding: 12px 32px !important;
+  margin-left: 12px;
+  box-shadow: 0 10px 20px rgba(255, 78, 205, 0.2);
+}
+
+.navbar-link.logout-btn:hover {
+  background: #e044b4 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 15px 25px rgba(255, 78, 205, 0.3);
+}
+
+.cart-icon-container {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.cart-icon-container:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.cart-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 800;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 2px solid #000;
+}
+
+/* Mobile Menu Button - Minimal */
+.mobile-menu-btn {
+  display: none;
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  position: relative;
+}
+
+.mobile-menu-btn span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: #ffffff;
+  margin: 4px auto;
+  transition: 0.3s;
+}
+
+@media (max-width: 991px) {
+  .navbar {
+    top: 12px;
+    width: 94%;
+    height: 60px;
+  }
+  .navbar-links {
+    display: none; /* In a real app, you'd show a mobile menu */
+  }
+}
+
+/* Cart Button Styles */
+.navbar-cart-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-primary);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.875rem;
+  transition: var(--transition);
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  position: relative;
+  white-space: nowrap;
+}
+
+.navbar-cart-link:hover {
+  color: var(--primary);
+  background: rgba(99, 102, 241, 0.1);
+  transform: translateY(-1px);
+}
+
+.cart-icon-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart-icon {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.navbar-cart-link:hover .cart-icon {
+  transform: scale(1.1);
+}
+
+.cart-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.2rem 0.4rem;
+  border-radius: 50%;
+  min-width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.cart-text {
+  font-weight: 500;
+}
+
+/* Logout Button Styles */
+.logout-btn {
+  appearance: none;
+  background: transparent;
+  color: var(--text-primary);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  font-weight: 500;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: var(--transition);
+  white-space: nowrap;
+}
+
+.logout-btn:hover {
+  color: var(--primary);
+  background: rgba(99, 102, 241, 0.1);
+  transform: translateY(-1px);
+}
+
+/* Mobile Menu Button */
+.mobile-menu-btn {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
+}
+
+.mobile-menu-btn span {
+  width: 100%;
+  height: 3px;
+  background: var(--text-primary);
+  border-radius: 2px;
+  transition: var(--transition);
+  transform-origin: center;
+}
+
+.mobile-menu-btn.active span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.mobile-menu-btn.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-menu-btn.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .navbar-container {
+    padding: 0 1rem;
+  }
+  
+  .navbar-links {
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    height: var(--navbar-height-mobile);
+  }
+  
+  .navbar-container {
+    padding: 0 1.5rem;
+  }
+  
+  .navbar-brand {
+    font-size: 1.25rem;
+  }
+  
+  .mobile-menu-btn {
+    display: flex;
+    z-index: 1002;
+  }
+  
+  .navbar-links {
+    position: fixed;
+    top: var(--navbar-height-mobile);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--white);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    transform: translateX(100%);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s ease-in-out;
+    z-index: 1005;
+    padding: 1rem;
+    box-sizing: border-box;
+    border-top: 1px solid var(--gray-200);
+    /* Hide completely when closed to avoid ghost text */
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  .navbar-links.mobile-open {
+    transform: translateX(0);
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+  }
+  
+  .navbar-link,
+  .navbar-cart-link,
+  .logout-btn {
+    font-size: 1.125rem;
+    padding: 1rem 2rem;
+    width: 100%;
+    text-align: center;
+    border-radius: var(--border-radius);
+    background: transparent;
+    transition: var(--transition);
+    color: var(--text-primary);
+  }
+  
+  .navbar-link:hover,
+  .navbar-cart-link:hover,
+  .logout-btn:hover {
+    background: rgba(99, 102, 241, 0.1);
+    color: var(--primary);
+    transform: translateY(-2px);
+  }
+  
+  .navbar-link::after,
+  .navbar-cart-link::after {
+    display: none;
+  }
+  
+  .cart-text {
+    font-size: 1.125rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-container {
+    padding: 0 1rem;
+  }
+  
+  .navbar-brand {
+    font-size: 1.125rem;
+  }
+  
+  .mobile-menu-btn {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .navbar-links {
+    gap: 1.5rem;
+    top: var(--navbar-height-mobile);
+  }
+  
+  .navbar-link,
+  .navbar-cart-link,
+  .logout-btn {
+    font-size: 1rem;
+    padding: 0.875rem 1.5rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .navbar-container {
+    padding: 0 0.75rem;
+  }
+  
+  .navbar-brand {
+    font-size: 1rem;
+  }
+  
+  .mobile-menu-btn {
+    width: 26px;
+    height: 26px;
+  }
+  
+  .navbar-links {
+    gap: 1rem;
+    top: var(--navbar-height-mobile);
+  }
+  
+  .navbar-link,
+  .navbar-cart-link,
+  .logout-btn {
+    font-size: 0.875rem;
+    padding: 0.75rem 1.25rem;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .navbar {
+    background: rgba(15, 23, 42, 0.95);
+    border-bottom-color: var(--gray-700);
+  }
+  
+  .navbar.scrolled {
+    background: rgba(15, 23, 42, 0.98);
+    border-bottom-color: var(--gray-600);
+  }
+  
+  .navbar-link,
+  .navbar-cart-link,
+  .logout-btn {
+    color: var(--gray-300);
+  }
+  
+  .navbar-link:hover,
+  .navbar-cart-link:hover,
+  .logout-btn:hover {
+    color: var(--primary);
+    background: rgba(99, 102, 241, 0.2);
+  }
+  
+  .mobile-menu-btn span {
+    background: var(--gray-300);
+  }
+  
+  .navbar-links {
+    background: var(--gray-900); /* Changed to solid dark background for visibility */
+    backdrop-filter: blur(0); /* Removed backdrop-filter in dark mode */
+  }
+  
+  .navbar-link,
+  .navbar-cart-link,
+  .logout-btn {
+    color: var(--dark-text); /* Ensure text color is appropriate for dark background */
+  }
+}
+
+/* Focus States for Accessibility */
+.navbar-link:focus,
+.navbar-cart-link:focus,
+.logout-btn:focus,
+.mobile-menu-btn:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Smooth transitions for all interactive elements */
+.navbar-link,
+.navbar-cart-link,
+.logout-btn,
+.mobile-menu-btn {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Prevent text selection on mobile menu button */
+.mobile-menu-btn {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}

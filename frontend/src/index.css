@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global Styles */
+:root {
+  --app-navbar-height: 70px;
+  --font-main: 'Outfit', sans-serif;
+}
+
+body {
+  padding-top: var(--app-navbar-height);
+  font-family: var(--font-main);
+  background-color: #0B0B0F;
+  color: #ffffff;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Dark mode base styles */
+@layer base {
+  html {
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  body {
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  }
+}
+
+/* Custom scrollbar for dark mode */
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 3px;
+  }
+  
+  .dark .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: #475569;
+  }
+}
+
+/* src/App.css or src/index.css */
+
+.main-navbar.fixed-navbar {
+  position: fixed; /* or sticky */
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #222; /* Or your navbar bg */
+  height: 60px; /* SET THIS TO THE ACTUAL HEIGHT OF YOUR NAVBAR */
+  z-index: 1000; /* To keep it on top */
+  /* ... other navbar styles ... */
+}
+
+.main-content-area {
+  /* THIS IS THE KEY PROPERTY */
+  padding-top: 60px; /* SHOULD MATCH THE NAVBAR'S HEIGHT */
+  /* This ensures content starts below the fixed navbar */
+}
